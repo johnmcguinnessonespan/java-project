@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/home/john/Documents/OSS/java/sdk-11.59.0-jar-with-dependencies.jar"
+    ]
+}
