@@ -14,17 +14,18 @@ import com.silanis.esl.sdk.builder.SignatureBuilder;
 import com.silanis.esl.sdk.builder.SignerBuilder;
 
 public class CreateTemplate {
-  public static final String TEMPLATE_NAME = "CreatedTemplate";
+  public static final String CONFIG_PATH = "/home/john/Documents/OSS/config.properties";
   public static final String DOCUMENT_ONE = "/home/john/Documents/OSS/docs/create_template.pdf";
-  public static final String PACKAGE_TITLE = "CreatedTemplate";
+  public static final String PACKAGE_TITLE = "Create-Template";
+  public static final String TEMPLATE_NAME = "CreatedTemplate";
 
   public static void main(String[] args) throws IOException {
     String env = "US2.SKF";
-    Properties prop = readPropertiesFile("/home/john/Documents/OSS/config.properties");
+    Properties prop = readPropertiesFile(CONFIG_PATH);
 
     EslClient eslClient = new EslClient(prop.getProperty(env + ".API"), prop.getProperty(env + ".URL"));
 
-    DocumentPackage documentPackage = PackageBuilder.newPackageNamed("Template for 2 via Java SDK")
+    DocumentPackage documentPackage = PackageBuilder.newPackageNamed(PACKAGE_TITLE)
         .withVisibility(Visibility.ACCOUNT)
         // .withVisibility(Visibility.SENDER)
         .withSigner(SignerBuilder.newSignerPlaceholder(new Placeholder("Signer1")))

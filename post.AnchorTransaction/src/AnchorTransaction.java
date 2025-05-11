@@ -21,7 +21,7 @@ import static com.silanis.esl.sdk.builder.SignatureBuilder.signatureFor;
 public class AnchorTransaction {
   public static final String CONFIG_PATH = "/home/john/Documents/OSS/config.properties";
   public static final String DOCUMENT = "/home/john/Documents/OSS/docs/anchor_contract.pdf";
-  public static final String PACKAGE_TITLE = "Anchor-Ttansaction";
+  public static final String PACKAGE_TITLE = "Anchor-Transaction";
   public static final String[] SIGNER = { "john.cyclist.mcguinness+client@gmail.com", "john.cyclist.mcguinness+contractor@gmail.com" };
 
   public static void main(String[] args) throws Exception {

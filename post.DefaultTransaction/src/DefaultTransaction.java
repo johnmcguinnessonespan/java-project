@@ -57,7 +57,7 @@ public class DefaultTransaction {
         .withSignature(SignatureBuilder.captureFor(SIGNERS[1]).onPage(0).atPosition(175,
          550))
          .withSignature(SignatureBuilder.initialsFor(SIGNERS[1]).onPage(0).atPosition(175,
-         950))
+         650))
         )
         .withSettings(DocumentPackageSettingsBuilder.newDocumentPackageSettings()
             // .withInPerson()

@@ -15,7 +15,7 @@ import com.silanis.esl.sdk.builder.SignerBuilder;
 // transaction with text tags and sole signer
 public class WordTagTransaction {
   public static final String CONFIG_PATH = "/home/john/Documents/OSS/config.properties";
-  public static final String DOCUMENT = "/home/john/Documents/OSS/docs/word_tag_transaction.docx";
+  public static final String FILE_PATH = "/home/john/Documents/OSS/docs/word_tag_transaction.docx";
   public static final String PACKAGE_TITLE = "Word-Tag-Transaction";
   public static final String SIGNER = "john.cyclist.mcguinness+word@gmail.com";
   
@@ -36,7 +36,7 @@ public class WordTagTransaction {
             .withLastName("Sign_one")
             .withCustomId("Signer1"))
         .withDocument(DocumentBuilder.newDocumentWithName(PACKAGE_TITLE)
-            .fromFile(DOCUMENT)
+            .fromFile(FILE_PATH)
             .enableExtraction()
             .withExtractionType(ExtractionType.TEXT_TAGS))
         // does not complete

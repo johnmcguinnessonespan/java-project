@@ -13,8 +13,7 @@ public class InjectionTransaction {
   public static final String CONFIG_PATH = "/home/john/Documents/OSS/config.properties";
   public static final String DOCUMENT_ONE = "/home/john/Documents/OSS/docs/simple-FieldsTest.pdf"; // add sign box
   public static final String PACKAGE_TITLE = "Injection-Transaction";
-  public static final String[] SIGNERS = { "john.cyclist.mcguinness+client@gmail.com",
-      "john.cyclist.mcguinness+contractor@gmail.com" };
+  public static final String[] SIGNERS = { "john.cyclist.mcguinness+client@gmail.com", "john.cyclist.mcguinness+contractor@gmail.com" };
 
   public static void main(String[] args) throws IOException, FileNotFoundException {
     String env = "US2.SKF";

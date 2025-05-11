@@ -39,7 +39,7 @@ public class RadioButtonTransaction {
 			Field radio3 = FieldBuilder.radioButton("group1").withName("signer1_group1_radio3")
 					.withPositionExtracted().withValue(false).withValidation(FieldValidatorBuilder.basic().required())
 					.build();
-			
+
 			DocumentPackage documentPackage = PackageBuilder.newPackageNamed("Test Package with Radio Button Fields")
 					.withSigner(SignerBuilder.newSignerWithEmail(signerInfo.get("email"))
 							.withCustomId("signer1")
@@ -47,7 +47,7 @@ public class RadioButtonTransaction {
 									.get("firstname"))
 							.withLastName(signerInfo
 									.get("lastname")))
-					.withDocument(DocumentBuilder.newDocumentWithName("Sample contract")
+					.withDocument(DocumentBuilder.newDocumentWithName("Radio Button Transaction")
 							.fromFile(DOCUMENT)
 							.enableExtraction()
 							.withSignature(SignatureBuilder.signatureFor(signerInfo.get("email"))
@@ -76,9 +76,9 @@ public class RadioButtonTransaction {
 		}
 	}
 
-  public static void getSignerLink(String aSigner, String whom) {
-    System.out.println("Link for " + whom + ":\n" + aSigner);
-  }
+	public static void getSignerLink(String aSigner, String whom) {
+		System.out.println("Link for " + whom + ":\n" + aSigner);
+	}
 
 	public static Properties readPropertiesFile(String fileName) throws IOException {
 		FileInputStream fis = null;

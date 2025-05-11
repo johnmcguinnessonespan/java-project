@@ -17,10 +17,11 @@ import java.util.Properties;
 // transaction with text tags and sole signer
 public class PDFTagTransaction {
   public static final String CONFIG_PATH = "/home/john/Documents/OSS/config.properties";
-  public static final String[] DOCUMENT = { "TextTagsInPdf", "/home/john/Documents/OSS/docs/pdf_tag_transaction.pdf" };
+  public static final String DOCUMENT_NAME = "PDF with tags";
+  public static final String FILE_PATH = "/home/john/Documents/OSS/docs/pdf_tag_transaction.pdf";
   public static final String PACKAGE_TITLE = "PDF-Tag-Transaction";
   public static final String SIGNER = "john.cyclist.mcguinness+pdf@gmail.com";
- 
+
   public static void main(String[] args) throws IOException, EslServerException {
     String env = "US2.SKF";
     Properties prop = readPropertiesFile(CONFIG_PATH);
@@ -34,14 +35,14 @@ public class PDFTagTransaction {
             .withLastName("Signer_one")
             .withCompany("One")
             .withCustomId("robin"))
-        .withDocument(DocumentBuilder.newDocumentWithName(DOCUMENT[0])
-            .fromFile(DOCUMENT[1])
+        .withDocument(DocumentBuilder.newDocumentWithName(DOCUMENT_NAME)
+            .fromFile(FILE_PATH)
             .enableExtraction()
             .withExtractionType(ExtractionType.TEXT_TAGS))
         .withSettings(DocumentPackageSettingsBuilder.newDocumentPackageSettings()
             .withoutLanguageDropDown()
             .withoutWatermark()
-            .withRemainingDays( 4)
+            .withRemainingDays(4)
             .withCeremonyLayoutSettings(CeremonyLayoutSettingsBuilder.newCeremonyLayoutSettings()
                 .withNavigator()
                 .withGlobalNavigation()

@@ -23,6 +23,8 @@ public class CompleteAllSignerSignatures {
 	
 		eslClient.signDocuments(packageId, SIGNER_ID);
 
+    //System.out.println(packageId.getId());
+
     System.out.println("All signatures applied for: " + SIGNER_ID);
   }
 

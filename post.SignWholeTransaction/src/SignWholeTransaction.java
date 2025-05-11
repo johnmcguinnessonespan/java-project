@@ -15,7 +15,7 @@ import com.silanis.esl.sdk.builder.TextAnchorBuilder;
 
 public class SignWholeTransaction  {
   public static final String CONFIG_PATH = "/home/john/Documents/OSS/config.properties";
-  public static final String FILE_PATH = "/home/john/Documents/OSS/docs/document-extraction.pdf";
+  public static final String FILE_PATH = "/home/john/Documents/OSS/docs/anchor_contract.pdf";
   public static final String PACKAGE_NAME = "SignWholeTransaction ";
   public static final String[] SIGNERS = {"john.mcguinness+sign1@gmail.com", "john.cyclist.mcguinness+sign2@gmail.com"};
  
@@ -41,8 +41,8 @@ public class SignWholeTransaction  {
         .withCustomId("Signer");
     // Signer signs on first document
     SignatureBuilder signature1 = SignatureBuilder.signatureFor(SIGNERS[0])
-        .withPositionAnchor(TextAnchorBuilder.newTextAnchor("Signature of Signer one")
-        .atPosition(TextAnchorPosition.TOPLEFT)
+  //      .withPositionAnchor(TextAnchorBuilder.newTextAnchor("Signature of Signer one")
+//        .atPosition(TextAnchorPosition.TOPLEFT)
         .withSize(150, 40)
         .withOffset(0, -50)
         .withCharacter(0)
@@ -50,8 +50,8 @@ public class SignWholeTransaction  {
   	
     // Signer two signs on first document
     SignatureBuilder signature2 = SignatureBuilder.signatureFor(SIGNERS[1])
-        .withPositionAnchor(TextAnchorBuilder.newTextAnchor("Signature of Signer two")
-        .atPosition(TextAnchorPosition.TOPLEFT)
+    //    .withPositionAnchor(TextAnchorBuilder.newTextAnchor("Signature of Signer two")
+      //  .atPosition(TextAnchorPosition.TOPLEFT)
         .withSize(150, 40)
         .withOffset(0, -50)
         .withCharacter(0)

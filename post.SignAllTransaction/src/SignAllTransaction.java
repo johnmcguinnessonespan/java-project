@@ -12,15 +12,14 @@ import com.silanis.esl.sdk.builder.SignatureBuilder;
 import com.silanis.esl.sdk.builder.SignerBuilder;
 import com.silanis.esl.sdk.builder.TextAnchorBuilder;
 
-public class SignAllTransaction
-{
-  public static final String PACKAGE_TITLE = "Sign-All-Transaction";
+public class SignAllTransaction {
   public static final String CONFIG_PATH = "/home/john/Documents/OSS/config.properties";
-  public static final String FILE_PATH = "/home/john/Documents/OSS/sampleAgreement.pdf";
-  public static final String[] SIGNER {"john.mcguinness+sender@skiff.com", "john.mcguinness+second@skiff.com"};
+  public static final String PACKAGE_TITLE = "Sign-All-Transaction";
+  public static final String FILE_PATH = "/home/john/Documents/OSS/docs/anchor_contract.pdf";
+  public static final String[] SIGNERS = { "john.cyclist.mcguinness+sender@gmail.com",
+      "john.cyclist.mcguinness+second@gmail.com" };
 
-  public static void main(String[] args) throws IOException
-  {
+  public static void main(String[] args) throws IOException {
     String env = "US2.SKF";
     Properties prop = readPropertiesFile(CONFIG_PATH);
 
@@ -32,17 +31,14 @@ public class SignAllTransaction
     // Sender
     SignerBuilder signer1 = SignerBuilder.newSignerWithEmail("john.mcguinness+sender@skiff.com")
         .withFirstName(prop.getProperty("FORENAME"))
-            .withLastName("Sender")
-            .withCustomId("Sender")
-        );
+        .withLastName("Sender")
+        .withCustomId("Sender");
 
     // Client
     SignerBuilder signer2 = SignerBuilder.newSignerWithEmail("john.mcguinness+client@skiff.com")
         .withFirstName(prop.getProperty("FORENAME"))
-            .withLastName("Signer")
-            .withCustomId("Signer")
-
-        );
+        .withLastName("Signer")
+        .withCustomId("Signer");
 
     // Sender signature on first document
     SignatureBuilder signature1 = SignatureBuilder.signatureFor("john.mcguinness+sender@skiff.com")
@@ -53,7 +49,7 @@ public class SignAllTransaction
             .withCharacter(0)
             .withOccurence(0));
 
-            // Client signature on first document
+    // Client signature on first document
 
     SignatureBuilder signature2 = SignatureBuilder.signatureFor("john.mcguinness+client@skiff.com")
         .withPositionAnchor(TextAnchorBuilder.newTextAnchor("Signature of the Client")
@@ -65,43 +61,37 @@ public class SignAllTransaction
 
     // First document
     DocumentBuilder document1 = DocumentBuilder.newDocumentWithName("Cleaning Contract")
-        .fromFile("DOC_FILE_PATH")
+        .fromFile(FILE_PATH)
         .withSignature(signature1)
         .withSignature(signature2);
     // Build package
     DocumentPackage packageToSend = packageToBuild.withSigner(signer1)
         .withSigner(signer2)
         .withDocument(document1)
-        .withDocument(document2)
+        // .withDocument(document2)
         .build();
 
     // Create and send package
-    PackageId packageId = EslClient.createAndSendPackage(packageToSend);
+    PackageId packageId = eslClient.createAndSendPackage(packageToSend);
+
+    System.out.println("{\n" + packageId + "\n}");
 
     // sign all documents for sender
-    EslClient.signDocuments(packageId); // TODO Auto-generated method stub
+    eslClient.signDocuments(packageId); // TODO Auto-generated method stub
   }
 
-  public static Properties readPropertiesFile(String fileName) throws IOException
-  {
+  public static Properties readPropertiesFile(String fileName) throws IOException {
     FileInputStream fis = null;
     Properties prop = null;
-    try
-    {
+    try {
       fis = new FileInputStream(fileName);
       prop = new Properties();
       prop.load(fis);
-    }
-    catch (FileNotFoundException fnfe)
-    {
+    } catch (FileNotFoundException fnfe) {
       fnfe.printStackTrace();
-    }
-    catch (IOException ioe)
-    {
+    } catch (IOException ioe) {
       ioe.printStackTrace();
-    }
-    finally
-    {
+    } finally {
       fis.close();
     }
     return prop;

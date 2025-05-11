@@ -33,22 +33,26 @@ public class CreateTransactionREST {
 
     Properties prop = readPropertiesFile(CONFIG_PATH);
 
-    // Path fileName = Path.of("/home/john/Downloads/readme.json");
+    /*
+     * develop code to read .json from file
+     * Path fileName = Path.of("/home/john/Downloads/readme.json");
+     * 
+     * // relacement charaters
+     * CharSequence aCharSeq = "\"";
+     * CharSequence bCharSeq = "\\\"";
+     * 
+     * String fileString = Files.readString(fileName);
+     * String singleLine = fileString.replaceAll("\\s+", "");
+     * 
+     * String jsonContent = singleLine.replace(aCharSeq.toString(),
+     * bCharSeq.toString()).toString();
+     * 
+     * String jsonContentBB = "\"" + jsonContentFromFile + "\"";
+     * System.out.println(jsonContentBB);
+     * 
+     * contents of .json file with escape metadata
+     */
 
-    // // relacement charaters
-    // CharSequence aCharSeq = "\"";
-    // CharSequence bCharSeq = "\\\"";
-
-    // String fileString = Files.readString(fileName);
-    // String singleLine = fileString.replaceAll("\\s+", "");
-
-    // String jsonContent = singleLine.replace(aCharSeq.toString(),
-    // bCharSeq.toString()).toString();
-
-    // String jsonContentBB = "\"" + jsonContentFromFile + "\"";
-    // System.out.println(jsonContentBB);
-
-    // contents of .json file with escape metadata
     String jsonContent = "{ \"roles\": [{ \"data\": { \"localLanguage\": \"local\" }, \"reassign\": true, \"emailMessage\": { \"content\": \"Transaction for one Signer!\" }, \"id\": \"SignerOne\", \"signers\": [{ \"email\": \"john.cyclist.mcguinness+sOne@gmail.com\", \"firstName\": \"John\", \"lastName\": \"McGuinness\", \"id\": \"SignerOne\" }], \"type\": \"SIGNER\" }], \"documents\": [{ \"approvals\": [{ \"id\": \"ExampleSignatureId\", \"role\": \"SignerOne\", \"fields\": [{ \"page\": 0, \"top\": 200, \"subtype\": \"LABEL\", \"height\": 50, \"left\": 100, \"width\": 200, \"id\": \"myLabelField\", \"type\": \"INPUT\", \"value\": \"Example with input field\" }, { \"page\": 0, \"top\": 100, \"subtype\": \"FULLNAME\", \"height\": 50, \"left\": 100, \"width\": 200, \"type\": \"SIGNATURE\", \"name\": \"ExampleSignatureId\" } ] }], \"name\": \"SignatureDoc\" }], \"name\": \"1 Signer and input transaction\", \"senderVisible\": false, \"due\": \"2026-01-01T14:00:00Z\", \"status\": \"SENT\" }";
 
     HttpsURLConnection connection = null;
